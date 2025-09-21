@@ -130,7 +130,7 @@ export default function Home() {
             "Rapid validation - working AI prototypes in 4 to 6 weeks to test feasibility, complexity and value",
             "Technology-agnostic architectures enabling easy portability across platforms and clouds",
             "Security-first approach with responsible, ethical and legally compliant AI by design",
-            "Experience from pre-seed to IPO, recognising the unique challenges of building technology in resource-constrained, fast-moving environments for startups",
+            "Experience from pre-seed to Series-A in resource-constrained, fast-moving startup environments",
           ].map((x) => (
             <div key={x} className="why-item">
               <span className="check">✔</span>
