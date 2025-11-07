@@ -13,6 +13,13 @@
         <div class="logo-circle">YL</div>
         <div class="brand-name">Yookthi Labs</div>
       </a>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
       <div class="nav-links">
         <a href="#what-we-do">What We Do</a>
         <a href="#why-us">Why Us</a>
@@ -279,6 +286,34 @@
   </footer>
 
   <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileMenuBtn && navLinks) {
+      mobileMenuBtn.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+      });
+
+      // Close mobile menu when clicking on a link
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function() {
+          navLinks.classList.remove('active');
+        });
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', function(event) {
+        const isClickInsideNav = navLinks.contains(event.target);
+        const isClickOnButton = mobileMenuBtn.contains(event.target);
+
+        if (!isClickInsideNav && !isClickOnButton && navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+        }
+      });
+    }
+
+    // Contact form submission
     document.getElementById('contact-form').addEventListener('submit', async function(e) {
       e.preventDefault();
 
